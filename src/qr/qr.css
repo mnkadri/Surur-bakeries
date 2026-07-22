@@ -1,0 +1,225 @@
+/* Standalone QR "connect card" page — printable, bilingual, RTL */
+
+.qr-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px 16px;
+  background:
+    radial-gradient(60% 50% at 80% 0%, rgba(230, 178, 74, 0.25), transparent 70%),
+    radial-gradient(60% 50% at 10% 100%, rgba(47, 158, 79, 0.14), transparent 70%),
+    linear-gradient(180deg, var(--cream), var(--cream-2));
+}
+
+.qr-card {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+  padding: clamp(24px, 5vw, 44px);
+  overflow: hidden;
+}
+.qr-card::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  height: 8px;
+  background: linear-gradient(90deg, var(--red), var(--gold), var(--green));
+}
+
+.qr-actions {
+  position: absolute;
+  inset-block-start: 18px;
+  inset-inline-end: 18px;
+  display: flex;
+  gap: 8px;
+}
+.qr-print {
+  display: inline-flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: var(--cream);
+  color: var(--brown-dark);
+  cursor: pointer;
+  text-decoration: none;
+}
+.qr-print:hover {
+  border-color: var(--gold);
+}
+
+.qr-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  margin-block: 8px 6px;
+}
+.qr-head__text h1 {
+  font-size: clamp(1.1rem, 3.4vw, 1.5rem);
+  color: var(--red);
+  font-weight: 900;
+  line-height: 1.2;
+}
+.qr-head__text p {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.qr-lead {
+  text-align: center;
+  color: var(--brown-dark);
+  font-weight: 700;
+  margin-block: 12px 22px;
+}
+.qr-lead span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+/* center website QR */
+.qr-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.qr-center__frame {
+  padding: 16px;
+  background: #fff;
+  border: 3px solid var(--gold);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  line-height: 0;
+}
+.qr-center__label {
+  text-align: center;
+}
+.qr-center__label strong {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--brown-dark);
+}
+.qr-center__label span {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+/* around grid */
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-block: 28px 8px;
+}
+.qr-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 10px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--cream);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.qr-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.qr-item__icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+.qr-item__frame {
+  padding: 8px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  line-height: 0;
+}
+.qr-item__label strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--brown-dark);
+}
+.qr-item__label span {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  word-break: break-word;
+}
+
+.qr-foot {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.qr-foot__regs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 20px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.qr-foot__web {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--red);
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 480px) {
+  .qr-grid {
+    grid-template-columns: 1fr;
+    max-width: 260px;
+    margin-inline: auto;
+  }
+  .qr-head {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media print {
+  .qr-actions {
+    display: none;
+  }
+  .qr-page {
+    background: #fff;
+    padding: 0;
+  }
+  .qr-card {
+    box-shadow: none;
+    border: none;
+    max-width: 100%;
+  }
+  .qr-item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
