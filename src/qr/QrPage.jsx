@@ -58,15 +58,6 @@ export default function QrPage() {
   return (
     <div className="qr-page">
       <div className="qr-card">
-        <div className="qr-actions">
-          <a className="qr-print" href="./surur-qr-cover.png" download>
-            ⬇️ تحميل PNG / Download
-          </a>
-          <button className="qr-print" onClick={() => window.print()}>
-            🖨️ طباعة / Print
-          </button>
-        </div>
-
         <header className="qr-head">
           <LogoMark size={64} />
           <div className="qr-head__text">

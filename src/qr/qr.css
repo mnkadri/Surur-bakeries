@@ -31,31 +31,6 @@
   background: linear-gradient(90deg, var(--red), var(--gold), var(--green));
 }
 
-.qr-actions {
-  position: absolute;
-  inset-block-start: 18px;
-  inset-inline-end: 18px;
-  display: flex;
-  gap: 8px;
-}
-.qr-print {
-  display: inline-flex;
-  align-items: center;
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 0.82rem;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 2px solid var(--line);
-  background: var(--cream);
-  color: var(--brown-dark);
-  cursor: pointer;
-  text-decoration: none;
-}
-.qr-print:hover {
-  border-color: var(--gold);
-}
-
 .qr-head {
   display: flex;
   align-items: center;
@@ -206,9 +181,6 @@
 }
 
 @media print {
-  .qr-actions {
-    display: none;
-  }
   .qr-page {
     background: #fff;
     padding: 0;
